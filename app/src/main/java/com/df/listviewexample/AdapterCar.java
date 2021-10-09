@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.df.listviewexample.models.Car;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class AdapterCar extends BaseAdapter {
 

@@ -2,6 +2,7 @@ package com.df.listviewexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,7 +12,10 @@ import android.widget.Toast;
 
 import com.df.listviewexample.models.Car;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -22,10 +26,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listViewNames = findViewById(R.id.listViewNames);
-       // Car c = new Car("FORD MUSTANG","2000","2021","140000000",null);
-        listCars.add(new Car("FORD MUSTANG","2000","2021","140000000",null));
-        listCars.add(new Car("CAMARO","2000","2021","140000000",null));
-        listCars.add(new Car("COBRA","2000","1966","140000000",null));
+        Bundle intent = getIntent().getBundleExtra("extra");
+        listCars = ((ArrayList<Car>) (intent.getSerializable("lista")));
         AdapterCar adapter = new AdapterCar(this,listCars);
         listViewNames.setAdapter(adapter);
         listViewNames.setOnItemClickListener(this);
